@@ -10,6 +10,8 @@ let selectWord= "";
 let guessedLetters =[];
 let wrongGuesses=0;
 const maxWrong =6;
+let timeLeft = 60;
+let countdown;
 
 /*----- Cached Element References  -----*/
 const hintText = document.getElementById("hint");
@@ -18,7 +20,8 @@ const letterButtons = document.getElementById("letter-button");
 const worngCount = document.getElementById("worngCount");
 const resultMassage = document.getElementById("result-massage");
 const restartBtn = document.getElementById("restrtBtn");
-
+const timer = document.getElementById("timer");
+const startbtn = document.getElementById("startbtn");
 /*-------------- Functions -------------*/
 function init(){
     const random = words[Math.floor(Math.random()* words.length)];
@@ -28,8 +31,22 @@ function init(){
     resultMassage.textContent="";
     hintText.textContent = `Hint: ${random.hint}`
     worngCount.textContent=wrongGuesses;
+    timeLeft =60;
     resultMassage.classList.add("hidden");
     restartBtn.classList.add("hidden");
+
+    timer.textContent = `Time Left: ${timeLeft}s`;
+    countdown = setInterval(()=>{
+        timeLeft--;
+        timer.textContent = `Time Left: ${timeLeft}s`;
+        if(timeLeft <=0){
+            clearInterval(countdown);
+            resultMassage.textContent= "Time's up! You Lost!";
+            resultMassage.classList.remove("hidden");
+            endGame();
+        }
+    },1000)
+
     generateWordDisplay();
     generateButtons();
 }
@@ -103,9 +120,9 @@ function endGame(){
     document.querySelectorAll('#letter-button button').forEach(
         btn => btn.disabled = true);
         restartBtn.classList.remove("hidden");
+        clearInterval(countdown);
 }
 
 /*----------- Event Listeners ----------*/
 restartBtn.addEventListener("click",init);
-
-init()
+startbtn.addEventListener("click",init);
