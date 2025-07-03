@@ -47,6 +47,7 @@ function init(){
             clearInterval(countdown);
             resultMassage.textContent= "Time's up 💣 ! You Lost!";
             resultMassage.classList.remove("hidden");
+            image.src="./assets/lost.gif";
             endGame();
         }
     },1000)
@@ -127,6 +128,7 @@ function endGame(){
         btn => btn.disabled = true);
         restartBtn.classList.remove("hidden");
         clearInterval(countdown);
+        
 }
 
 /*----------- Event Listeners ----------*/
