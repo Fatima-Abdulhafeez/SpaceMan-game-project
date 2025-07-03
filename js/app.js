@@ -22,6 +22,8 @@ const resultMassage = document.getElementById("result-massage");
 const restartBtn = document.getElementById("restrtBtn");
 const timer = document.getElementById("timer");
 const startbtn = document.getElementById("startbtn");
+const image = document.getElementById("image");
+const wrongGs= document.getElementById("wg");
 /*-------------- Functions -------------*/
 function init(){
     const random = words[Math.floor(Math.random()* words.length)];
@@ -29,19 +31,21 @@ function init(){
     guessedLetters=[];
     wrongGuesses=0;
     resultMassage.textContent="";
-    hintText.textContent = `Hint: ${random.hint}`
+    hintText.textContent = `💡 Hint : ${random.hint}`
     worngCount.textContent=wrongGuesses;
     timeLeft =60;
+    image.src="./assets/spaceman.gif";
     resultMassage.classList.add("hidden");
     restartBtn.classList.add("hidden");
-
+    startbtn.classList.add("hidden");
+    wrongGs.classList.remove("hidden");
     timer.textContent = `Time Left: ${timeLeft}s`;
     countdown = setInterval(()=>{
         timeLeft--;
-        timer.textContent = `Time Left: ${timeLeft}s`;
+        timer.textContent = `⌛ Time Left: ${timeLeft}s`;
         if(timeLeft <=0){
             clearInterval(countdown);
-            resultMassage.textContent= "Time's up! You Lost!";
+            resultMassage.textContent= "Time's up 💣 ! You Lost!";
             resultMassage.classList.remove("hidden");
             endGame();
         }
@@ -103,16 +107,18 @@ function checkWin(){
     }
  }
  if(allGuessed){
-    resultMassage.textContent="you saved th spaceman!";
+    resultMassage.textContent="You saved the spaceman!";
     resultMassage.classList.remove("hidden");
+    image.src="./assets/win.gif";
     endGame();
  }
 }
 
 function checkLoss(){
     if(wrongGuesses>=maxWrong){
-        resultMassage.textContent="Game Is over! The Spaceman is lost in the space :( ";
+        resultMassage.textContent=`Game Is over! The Word is ${selectWord} `;
         resultMassage.classList.remove("hidden");
+        image.src="./assets/lost.gif";
         endGame();
     }
 }

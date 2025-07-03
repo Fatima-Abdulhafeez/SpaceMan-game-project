@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpaceMan Game</title>
+    <title>SpaceMan Game🚀</title>
 <link rel="stylesheet" href="css/style.css">
 <script defer src="./js/app.js"></script>
 </head>
 
 <body>
-    <h1> SpaceMan Word Game </h1>
+    <nav class="bar">
+        <div class="navleft">Spaceman Game 🚀</div>
+        <ul class="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rules.html">Rules</a></li>
+        </ul>
+    </nav>
+
+    <h1> SpaceMan Word Game 💫🌠</h1>
+    <img src="./assets/spaceman.gif" alt="Spaceman Floating" class="spaceman-gif" id="image" class="hidden"/>
     <div id="container">
-       <p id="hint">Hint </p>
+       <p id="hint"> </p>
        <div id="word-display"></div>
-       <div id="letter-button"></div>
-       <p >Wrong Guesses: <span id="worngCount">0</span>/6 </p>
-       <p id="timer">Timer</p>
+       
+       <p id="wg" class="hidden" >Wrong Guesses: <span id="worngCount">0</span>/6 </p>
+       <p id="timer"></p>
        <p id="result-massage" class="hidden"></p>
+       <div id="letter-button"></div>
+       <button id="rulesbtn"><a href="rules.html">Rules</a></button>
        <button id="startbtn">Start Game</button>
        <button id="restrtBtn"class="hidden"> Play Again </button>
     </div>

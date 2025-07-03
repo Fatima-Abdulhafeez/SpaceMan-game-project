@@ -1,0 +1,42 @@
+body{
+/*background: linear-gradient(to bottom,#020024,#090979,#00d4ff);*/
+background-image: url('/assets/spacee.gif') ;
+color: white;
+display: flex;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+ background-size: cover;
+ background-repeat: no-repeat;
+min-height: 100vh;
+font-family: 'Orbitron',sans-serif;
+}
+.bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   /* background-color: #0a0a23;*/
+    padding: 15px 3px;
+    color: white;
+    font-family: sans-serif;
+  /* box-shadow: 0 4px 8px rgba(0,0,0,0.4);*/
+}
+.navleft{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 15px;
+}
+.navLinks{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.navLinks li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.navLinks li a:hover{
+    color: #6666ff;
+    text-shadow: 0 0 5px ;
+}
